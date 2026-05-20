@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Segoe UI</family>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="cursor">
+   <cursorShape>PointingHandCursor</cursorShape>
+  </property>
+  <property name="tabletTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* =====================================================
+   MAIN WINDOW
+===================================================== */
+QMainWindow {
+    background-color: #020617;
+    color: #E5E7EB;
+    font-family: &quot;Segoe UI&quot;, &quot;Inter&quot;, sans-serif;
+}
+
+/* =====================================================
+   LABELS
+===================================================== */
+QLabel {
+    color: #CBD5F5;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* =====================================================
+   INPUT &amp; RESULT LINE EDITS
+===================================================== */
+QLineEdit {
+    background-color: #1E293B;
+    color: #E5E7EB;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #3B82F6;
+}
+
+/* =====================================================
+   BUTTONS (POSTFIX / PREFIX)
+===================================================== */
+QPushButton {
+    background-color: #3B82F6;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #2563EB;
+}
+
+QPushButton:pressed {
+    background-color: #1D4ED8;
+}
+
+/* =====================================================
+   EVALUATE BUTTON (GREEN)
+   objectName = btnEvaluate
+===================================================== */
+QPushButton#btnEvaluate {
+    background-color: #22C55E;
+}
+
+QPushButton#btnEvaluate:hover {
+    background-color: #16A34A;
+}
+
+/* =====================================================
+   HISTORY LIST (QListWidget)
+===================================================== */
+QListWidget {
+    background-color: #020617;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 6px;
+    color: #E5E7EB;
+}
+
+QListWidget::item {
+    padding: 8px;
+    border-radius: 6px;
+}
+
+QListWidget::item:selected {
+    background-color: #1E293B;
+}
+
+/* =====================================================
+   SCROLL BAR (MODERN)
+===================================================== */
+QScrollBar:vertical {
+    background: #020617;
+    width: 10px;
+    margin: 0px;
+}
+
+QScrollBar::handle:vertical {
+    background: #334155;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #475569;
+}
+
+/* =====================================================
+   MESSAGE BOX
+===================================================== */
+QMessageBox {
+    background-color: #020617;
+    color: #E5E7EB;
+}
+
+QMessageBox QPushButton {
+    background-color: #3B82F6;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+</string>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">/* ===============================
+   MAIN WINDOW BACKGROUND
+=============================== */
+QMainWindow {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #020617,
+        stop:1 #020617
+    );
+}
+
+/* ===============================
+   CENTRAL GLASS CARD
+=============================== */
+QWidget#centralwidget {
+    background: rgba(15, 23, 42, 0.78);   /* glass */
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ===============================
+   LABELS (Expression / Result / History)
+=============================== */
+QLabel {
+    color: #CBD5F5;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===============================
+   INPUT &amp; RESULT LINE EDIT
+=============================== */
+QLineEdit {
+    background: rgba(30, 41, 59, 0.9);
+    color: #F8FAFC;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 10px;
+    font-size: 14px;
+}
+QLineEdit:hover {
+    border: 1px solid #3B82F6;
+}
+QLineEdit:focus {
+    border: 1px solid #60A5FA;
+    background: rgba(30, 41, 59, 1);
+}
+
+/* ===============================
+   BUTTONS (Postfix / Prefix)
+=============================== */
+QPushButton {
+    background: rgba(59, 130, 246, 0.85);
+    color: white;
+    border-radius: 14px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+}
+QPushButton:hover {
+    background: rgba(59, 130, 246, 1);
+}
+QPushButton:pressed {
+    background: rgba(37, 99, 235, 1);
+}
+
+/* ===============================
+   EVALUATE BUTTON (PRIMARY CTA)
+=============================== */
+QPushButton#btnEvaluate {
+    background: rgba(34, 197, 94, 0.9);
+    font-size: 15px;
+}
+QPushButton#btnEvaluate:hover {
+    background: rgba(22, 163, 74, 1);
+}
+QPushButton#btnEvaluate:pressed {
+    background: rgba(21, 128, 61, 1);
+}
+
+/* ===============================
+   HISTORY LIST (GLASS PANEL)
+=============================== */
+QListWidget {
+    background: rgba(2, 6, 23, 0.75);
+    border-radius: 14px;
+    padding: 8px;
+    color: #E5E7EB;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+QListWidget::item {
+    padding: 6px;
+    border-radius: 8px;
+}
+QListWidget::item:hover {
+    background: rgba(59, 130, 246, 0.18);
+}
+QListWidget::item:selected {
+    background: rgba(59, 130, 246, 0.30);
+}
+
+/* ===============================
+   SCROLLBAR (MINIMAL)
+=============================== */
+QScrollBar:vertical {
+    background: transparent;
+    width: 6px;
+}
+QScrollBar::handle:vertical {
+    background: rgba(148, 163, 184, 0.4);
+    border-radius: 3px;
+}
+QScrollBar::handle:vertical:hover {
+    background: rgba(148, 163, 184, 0.7);
+}
+</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,1,1,1">
+      <property name="spacing">
+       <number>18</number>
+      </property>
+      <property name="leftMargin">
+       <number>40</number>
+      </property>
+      <property name="topMargin">
+       <number>30</number>
+      </property>
+      <property name="rightMargin">
+       <number>40</number>
+      </property>
+      <property name="bottomMargin">
+       <number>30</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="expressionLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Expression:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEditExpression">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>1</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="cursor">
+           <cursorShape>BusyCursor</cursorShape>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="btnConvertPrefix">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>1</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Prefix</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnConvertPostfix">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>1</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Postfix</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QPushButton" name="btnEvaluate">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>2</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Evaluate</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="resultLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Result:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEditResult">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>1</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="history">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>History:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="textEditHistory">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>1</horstretch>
+            <verstretch>2</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>17</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
